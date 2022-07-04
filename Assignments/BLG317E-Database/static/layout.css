@@ -1,0 +1,150 @@
+
+.col_white_amrc { color:#FFF;}
+footer { width:100%; background-color:#263238; min-height:150px; padding:10px 0px 25px 0px;}
+
+footer p { font-size:13px; color:#CCC; padding-bottom:0px; margin-bottom:8px;}
+
+.footer_ul_amrc { margin:0px ; list-style-type:none ; font-size:14px; padding:0px 0px 10px 0px ; }
+
+.footer_ul_amrc li a:hover{ color:#fff; text-decoration:none;}
+.fleft { float:left;}
+.padding-right { padding-right:10px; }
+
+.footer_ul2_amrc {margin:0px; list-style-type:none; padding:0px;}
+.footer_ul2_amrc li p { display:table; }
+.footer_ul2_amrc li a:hover { text-decoration:none;}
+.footer_ul2_amrc li i { margin-top:5px;}
+
+.bottom_border { border-bottom:1px solid #323f45; padding-bottom:20px;}
+.foote_bottom_ul_amrc {
+	list-style-type:none;
+	padding:0px;
+	display:table;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+}
+.foote_bottom_ul_amrc li { display:inline;}
+.foote_bottom_ul_amrc li a { color:#999; margin:0 12px;}
+
+.social_footer_ul { display:table; margin:15px auto 0 390px; list-style-type:none;  }
+.social_footer_ul li { padding-left:20px; padding-top:10px; float:left; }
+.social_footer_ul li a { color:#CCC; border:1px solid #CCC; padding:8px;border-radius:50%;}
+.social_footer_ul li i {  width:20px; height:20px; text-align:center;}
+
+.tileMe li {
+    display: inline;
+    float: left;
+}
+
+.flash{
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-top: 20px;
+    border-radius: 5px;
+}
+
+.d{
+    width: 30%;
+    margin-right: 30px;
+    margin-top:25px;
+    display:flex;
+    flex-wrap: wrap;    
+    
+    flex: 1 0 25%;
+    box-sizing: border-box;
+    background: #e0ddd5;
+    color: #171e42;   
+}
+body{ 
+  /*min-height: 100vh; */
+  margin: 0; 
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+header{ 
+  min-height:50px;
+}
+
+footer{ 
+  min-height:50px; 
+}
+
+.tor{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.p{
+    /*border: 5px solid powderblue;*/
+    margin-top:20px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-bottom: 10%;
+    display: grid;
+    padding-left: 20px;
+    
+    flex: 1 0 25%;
+    box-sizing: border-box;
+    /*background: #e0ddd5;*/
+    color: black;
+}
+
+.deneme{
+    color:red;
+    margin-left:50px;
+}
+
+.loc{
+    margin-top:100px;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+
+
+body{
+    margin: 0;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212529;
+    text-align: left;
+    background-color: #f5f8fa;
+}
+
+.navbar-laravel
+{
+    box-shadow: 0 2px 4px rgba(0,0,0,.04);
+}
+
+.navbar-brand , .nav-link, .my-form, .login-form
+{
+    font-family: Raleway, sans-serif;
+}
+
+.my-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.my-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.login-form
+{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.login-form .row
+{
+    margin-left: 0;
+    margin-right: 0;
+}
+

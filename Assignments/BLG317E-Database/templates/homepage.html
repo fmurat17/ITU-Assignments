@@ -1,0 +1,106 @@
+{% extends "layout.html"%}
+
+
+{% block content %}  
+
+
+<h1 style="text-align: center; margin-top:5%;">WELCOME TO FISTBUMP!</h1>
+<h4 style="text-align: center; ">The Ultimate Platform for Gaming World</h4>
+
+<div class="p" style="margin-top:5%;">
+    <ul class="tileMe">
+      <li>
+        <div class="card bg-dark text-white" style="width: 300px;margin-right:20px;">
+          <img class="card-img" src="{{ url_for('static', filename = './images/cs.png') }}" alt="Card image">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Looking for a Player/Team ?</h5>
+            <p class="card-text">Find a player for your team among the hundreds of player that waiting for you, or find a best team for you to beat whichever team you face.</p>
+            <br>
+            <div id="header" style="position: relative;
+      min-height: 150px;">
+          <div id="header-content" style="position: absolute; bottom: 0; left: 0; margin-top: 10px; margin-left: 30px;"><div class="row" >
+            
+            <form action="/players">
+            <div class="col">
+            <div class="field is-grouped" style="margin-left:3%;">
+                <div class="control">
+                <button type="submit" name="update" class="button is-primary is-small btn btn-danger">Players</button>
+                </div>
+            </div>
+            </div>
+          </form>
+        
+          <form action="/teams">
+            <div class="col">
+                <div class="field is-grouped" style="margin-left:3%;">
+                    <div class="control">
+                    <button name="delete" type="submit" class="button is-primary is-small btn btn-danger">Teams</button>
+                    </div>
+                </div>
+                </div>
+              </form>
+           
+        </div></div>
+          
+        </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="card bg-dark text-white" style="width: 300px; margin-right:20px;">
+          <img class="card-img" src="{{ url_for('static', filename = './images/cs.png') }}" alt="Card image">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Looking for a Tournament?</h5>
+            <p class="card-text">Find a tournament that suits for you or your team. Earn tens of different prizes at your best.</p>
+            <br><br>
+            <div id="header" style="position: relative;
+      min-height: 150px; margin-left:60px;">
+          <div id="header-content" style="position: absolute; bottom: 0; left: 0; margin-top: 10px;"><div class="field is-grouped">
+            <div>
+
+              <form action="/tournament">
+            <div class="control">
+              <button class="button is-primary is-small btn btn-danger">Tournaments</button>
+            </div>
+          </form>
+
+            
+          </div>
+          </div></div>
+          
+        </div>
+          </div>
+        </div>
+      </li>
+
+      <li>
+
+        <div class="card bg-dark text-white" style="width: 300px;">
+          <img class="card-img" src="{{ url_for('static', filename = './images/cs.png') }}" alt="Card image">
+          <div class="card-img-overlay">
+            <h5 class="card-title">Looking for a discussion?</h5>
+            <p class="card-text"> You want to discuss on any topic related to gaming world with people from all over the world? Go on then. </p>
+            <br>
+            <div id="header" style="position: relative;
+      min-height: 150px;">
+          <div id="header-content" style="position: absolute; bottom: 0; left: 0; margin-top: 10px; margin-left:90px;"><div class="field is-grouped">
+            <div>
+
+              <form action="/forum">
+            <div class="control">
+              <button class="button is-primary is-small btn btn-danger">Forum</button>
+            </div>
+          </form>
+           
+          </div>
+          </div></div>
+          
+        </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.html"%}
+
+
+{% block content %}  
+
+<br><br>
+  
+
+<form action="" class = "tor" method="POST" name="add-tour">
+    
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Game</label>
+      <select style="width: 400px;" name="game" class="form-control" id="exampleFormControlSelect1">
+        {% for game in games %}
+        <option>{{ game[1] }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+
+
+{% endblock %}

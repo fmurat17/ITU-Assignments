@@ -1,0 +1,83 @@
+{% extends "layout.html"%}
+
+
+{% block content %}  
+
+<br>
+
+
+
+<div class="rounded" style="margin:30px; margin-right:3%; word-wrap: break-word;width:1350px;
+word-wrap: break-word;">
+<h1 class="title">{{ topic[0][1] }}</h1>
+    <table class="table">
+        <tr>
+            <th> Content </th>
+            <td> {{ topic[0][2] }} </td>
+        </tr>
+
+        <tr>
+            <th>Game</th>
+            <td>{{ topic[0][5] }}</td>
+        </tr>
+
+        <tr>
+          <th>Status</th>
+          <td>{{ topic[0][6] }}</td>
+      </tr>
+        
+    </table>
+</div>
+<hr>
+
+{% if auth == 1 %}
+<form method="POST">
+<div class="row" style="margin-bottom:2%; top:0;">
+    
+    <div class="col">
+    <div class="field is-grouped" style="margin-left:3%;">
+        <div class="control">
+        <button type="submit" name="update" class="button is-primary is-small btn btn-danger">Update Post</button>
+        </div>
+    </div>
+    </div>
+
+    <div class="col">
+        <div class="field is-grouped" style="margin-left:3%;">
+            <div class="control">
+            <button name="delete" type="submit" class="button is-primary is-small btn btn-danger">Delete Post</button>
+            </div>
+        </div>
+        </div>
+   
+</div>
+</form>
+{% endif %}
+
+{% for t1, t2, resp, t3, t4 in responses %}
+<div class="card" style="margin:20px;">
+    <div class="card-header">
+      <i>by</i> {{ t3 }}
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        {{ resp }}
+        <footer class="blockquote-footer" style="background-color: white;"> {{ t4 }} </footer>
+      </blockquote>
+    </div>
+</div>
+{% endfor %}
+
+
+
+<form action="" class = "tor" method="POST" name="add-tour">
+    <div class="form-group">
+        <label for="Contact">Your answer..</label>
+        <textarea style="height:200px;" type="text" name="response" class="form-control" placeholder="Response.." required></textarea>
+      </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-bottom: 40px;">Submit</button>
+</form>
+
+
+{% endblock %}

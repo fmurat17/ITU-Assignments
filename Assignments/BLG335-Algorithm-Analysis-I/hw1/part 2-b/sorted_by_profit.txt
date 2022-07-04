@@ -1,0 +1,16 @@
+Country	Item Type	Order ID	Units Sold	Total Profit
+Sri Lanka	Fruits	830192887	1379	3323.39
+South Africa	Fruits	443368995	1593	3839.13
+Seychelles 	Beverages	425793445	597	9349.02
+Taiwan	Fruits	732588374	8034	19361.94
+Papua New Guinea	Meat	940995585	360	20592.00
+Tanzania	Beverages	659878194	1476	23114.16
+Djibouti	Clothes	880811536	562	41273.28
+Slovakia	Beverages	174590194	3973	62217.18
+Ghana	Office Supplies	601245963	896	113120.00
+Vietnam	Personal Care	314505374	7984	200079.04
+Morocco	Clothes	667593514	4611	338631.84
+Singapore	Snacks	176461303	7676	423254.64
+Papua New Guinea	Clothes	647164094	9092	667716.48
+Tanzania	Cosmetics	739008080	7768	1350622.16
+Algeria	Cosmetics	761723172	9669	1681149.03

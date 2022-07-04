@@ -1,0 +1,136 @@
+{% extends "layout.html"%}
+
+
+{% block content %}  
+
+<div style="text-align: center; margin-top:2%;">
+    <h1>Search for the Lates Tournaments </h1>
+  </div>
+<br>
+<form action="/add-tour" style="text-align: center;">
+    <div class="field is-grouped">
+        <div class="control">
+          <button class="button is-primary is-small btn btn-danger">Add Tournament</button>
+        </div>
+      </div>
+</form>
+
+<br><br>
+
+
+
+<div style="margin-left: 5%;">
+    <input type="text" id="filter_text" onkeyup="filterTable()" placeholder="Write Something to filter the table...">
+    <input type="radio" name="clmn" value=0 onclick="setFilterColumn(0); filterTable();" required> Share Time
+    <input type="radio" name="clmn" value=0 onclick="setFilterColumn(1); filterTable();" required checked> Title
+    <input type="radio" name="clmn" value=1 onclick="setFilterColumn(2); filterTable();" required> User
+    <input type="radio" name="clmn" value=2 onclick="setFilterColumn(3); filterTable();" required> Game
+    <input type="radio" name="clmn" value=3 onclick="setFilterColumn(4); filterTable();" required> Prize
+</div>
+
+<div style="margin: 40px;">
+  <table class="table table-dark table-hover" style="margin: auto; padding-right: 100px; margin-top: 30px;" id="tour_table">
+    <thead>
+        <tr style="background-color: rgb(209, 47, 95);">
+          <th onclick="sortTable('sharetime')" scope="col" style="cursor:pointer;">Share Time</th>
+          <th onclick="sortTable('title')" scope="col" style="cursor:pointer;">Title</th>
+          <th onclick="sortTable('user')"scope="col" style="cursor:pointer;">UserID</th>
+          <th onclick="sortTable('game')"scope="col" style="cursor:pointer;">Game</th>
+          <th onclick="sortTable('prize')"scope="col" style="cursor:pointer;">Prize</th>
+
+        </tr>
+      </thead>
+      <tbody>
+    {% for TournamentId, contact_info,  description, UserID, share_time, game, prize, title in tours%}
+        <tr>     
+            <td> {{share_time}} </td>  
+            <td> 
+                <a href="{{ url_for('tournament_page', tour_key=TournamentId) }} ">
+                    {{title}}
+                </a> </td>
+            <td> {{UserID}} </td>
+            
+            <td> {{game}} </td>
+            <td> {{prize}} </td>           
+        </tr>
+    {% endfor %}
+</tbody>
+</table>
+</div>
+
+<script>
+    ascending = false;
+    function sortTable(column) {
+        ascending = !ascending; 
+        var col_num;
+        switch(column){
+            case "sharetime":
+                col_num = 0; break;
+            case "title":
+                col_num = 1; break;
+            case "user":
+                col_num = 2; break;
+            case "game":
+                col_num = 3; break;
+            case "prize":
+                col_num = 4; break;
+        }
+
+        var table, rows;
+        var switching;
+        var i, el1, el2; // row index and two elements to compare
+        var swap;        // boolean flag
+        table = document.getElementById("tour_table");
+        switching = true;
+
+        while (switching) {
+            switching = false;
+            rows = table.rows;
+
+            for (i = 1; i < (rows.length - 1); i++) {
+                swap = false;
+                el1 = rows[i].getElementsByTagName("TD")[col_num];
+                el2 = rows[i + 1].getElementsByTagName("TD")[col_num];
+                if ( (ascending && el1.innerHTML.toLowerCase() > el2.innerHTML.toLowerCase())
+                    || !ascending && el1.innerHTML.toLowerCase() < el2.innerHTML.toLowerCase()) {
+                    swap = true;
+                    break;
+                }
+            }
+
+            if (swap) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+            }
+        }
+    }
+
+    filter_col_num = 1;
+    function setFilterColumn(col_num){
+        filter_col_num = col_num;
+    }
+
+    function filterTable(){
+        var filter_input = document.getElementById("filter_text");
+        var filter_text = filter_input.value.toUpperCase();
+        var table = document.getElementById("tour_table");
+        var trs = table.getElementsByTagName("tr");     // tablerows
+
+        for (var i = 0; i < trs.length; i++) {
+            var td = trs[i].getElementsByTagName("td")[filter_col_num];
+            if(td){
+                var txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter_text) > -1) {
+                    trs[i].style.display = "";
+                }
+                else {
+                    trs[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
+
+
+
+{% endblock %}

@@ -1,0 +1,85 @@
+CREATE TABLE `discussion` (
+  `DiscussionID` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(128) NOT NULL,
+  `content` varchar(1024) NOT NULL,
+  `UserID` int unsigned NOT NULL,
+  `share_time` varchar(32) DEFAULT NULL,
+  `game` varchar(32) DEFAULT NULL,
+  `stat` varchar(16) DEFAULT 'Unsolved',
+  PRIMARY KEY (`DiscussionID`),
+  KEY `UserID` (`UserID`),
+  CONSTRAINT `discussion_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`)
+)
+
+CREATE TABLE `post` (
+  `PostID` int unsigned NOT NULL AUTO_INCREMENT,
+  `UserID` int unsigned NOT NULL,
+  `country` varchar(32) NOT NULL,
+  `contact_info` varchar(64) NOT NULL,
+  `ranks` varchar(32) NOT NULL,
+  `age` int unsigned NOT NULL,
+  `hours_played` int unsigned NOT NULL,
+  `description` varchar(1024) NOT NULL,
+  `nickname` varchar(32) NOT NULL,
+  `requirements` varchar(512) NOT NULL,
+  `post_type` int unsigned NOT NULL,
+  `game` varchar(32) NOT NULL,
+  `activeness` int unsigned DEFAULT NULL,
+  `shared_time` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`PostID`),
+  KEY `UserID` (`UserID`),
+  CONSTRAINT `post_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`)
+)
+
+CREATE TABLE `game` (
+  `GameID` int unsigned NOT NULL AUTO_INCREMENT,
+  `game_name` varchar(64) NOT NULL,
+  PRIMARY KEY (`GameID`)
+) 
+
+CREATE TABLE `response` (
+  `ResponseID` int unsigned NOT NULL AUTO_INCREMENT,
+  `DiscussionID` int unsigned NOT NULL,
+  `response` varchar(1024) NOT NULL,
+  `UserID` int unsigned NOT NULL,
+  `share_time` varchar(32) NOT NULL,
+  PRIMARY KEY (`ResponseID`),
+  KEY `UserID` (`UserID`),
+  KEY `DiscussionID` (`DiscussionID`),
+  CONSTRAINT `DiscussionID` FOREIGN KEY (`DiscussionID`) REFERENCES `discussion` (`DiscussionID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `response_ibfk_2` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`)
+)
+
+CREATE TABLE `role` (
+  `RoleID` int unsigned NOT NULL AUTO_INCREMENT,
+  `PostID` int unsigned NOT NULL,
+  `roles` varchar(16) NOT NULL,
+  PRIMARY KEY (`RoleID`),
+  KEY `PostID` (`PostID`),
+  CONSTRAINT `PostID` FOREIGN KEY (`PostID`) REFERENCES `post` (`PostID`) ON DELETE CASCADE ON UPDATE CASCADE
+)
+
+CREATE TABLE `tournament` (
+  `TournamentID` int NOT NULL AUTO_INCREMENT,
+  `contact_info` varchar(50) NOT NULL,
+  `description` varchar(512) NOT NULL,
+  `UserID` int unsigned NOT NULL,
+  `share_time` varchar(32) NOT NULL,
+  `game` varchar(32) NOT NULL,
+  `prize` varchar(64) NOT NULL,
+  `title` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`TournamentID`),
+  KEY `UserID` (`UserID`),
+  CONSTRAINT `tournament_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`UserID`)
+)
+
+CREATE TABLE `user` (
+  `UserID` int unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(30) NOT NULL,
+  `Mail` varchar(40) NOT NULL,
+  `password` varchar(256) DEFAULT NULL,
+  `is_superuser` int unsigned NOT NULL,
+  PRIMARY KEY (`UserID`)
+)
+
+

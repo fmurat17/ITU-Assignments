@@ -1,0 +1,103 @@
+{% extends "layout.html"%}
+
+
+{% block content %}  
+
+<br>
+<div style="text-align: center;">
+    <h1>{{team[0][8]}}</h1>
+</div>
+
+<br><br><br>
+<div class="row" style="margin-bottom:2%;">
+  <div class="container col" style="margin-left:3%; margin-right: 0;">
+    <div class="col-sm-25">
+  
+        <div data-spy="scroll" class="tabbable-panel">
+          <div class="tabbable-line">
+              
+            <div class="tab-content">
+              <div class="tab-pane active" id="tab_default_1">
+                <h4><b>Description</b></h4>
+                <p>
+                    {{ team[0][7] }}
+                </p>
+                <h4><b>Requirements</b></h4>
+                <p>
+                    {{ team[0][9] }}
+                </p>
+                <h4><b>Contact Info</b></h4>
+                <p>{{ team[0][3] }}</p>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+    
+    </div>
+    <div class="col-sm-4"></div>
+    </div>
+<br>
+<div class="col" style="margin-left:0; margin-right: 3%;">
+    <table class="table">
+        <tr>
+            <th>Ranks</th>
+            <td>{{ team[0][4] }}</td>
+        </tr>
+
+        <tr>
+            <th>Roles</th>
+            <td>
+                {% for t1,t2, role in roles %}
+                    {{ role }} -
+                {% endfor %}
+            </td>
+        </tr>
+        <tr>
+            <th>Game</th>
+            <td>{{ team[0][11] }}</td>
+        </tr>
+
+        <tr>
+            <th> Country </th>
+            <td> {{ team[0][2] }} </td>
+        </tr>
+
+        <tr>
+            <th>Share Time</th>
+            <td>{{ team[0][13] }}</td>
+        </tr>
+     
+        
+    </table>
+
+
+</div>
+</div>
+
+
+{% if auth == 1 %}
+<form method="POST">
+<div class="row" style="margin-bottom:2%;">
+    
+    <div class="col">
+    <div class="field is-grouped" style="margin-left:3%;">
+        <div class="control">
+        <button type="submit" name="update" class="button is-primary is-small btn btn-danger">Update Post</button>
+        </div>
+    </div>
+    </div>
+
+    <div class="col">
+        <div class="field is-grouped" style="margin-left:3%;">
+            <div class="control">
+            <button name="delete" type="submit" class="button is-primary is-small btn btn-danger">Delete Post</button>
+            </div>
+        </div>
+        </div>
+   
+</div>
+</form>
+{% endif %}
+
+{% endblock %}
